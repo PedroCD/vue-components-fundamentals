@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Components Fundamentals</title>
+  </head>
+
+  <body>
+  <div id="app" class="container mx-auto py-6">
+      <h2 class="subtitle">We travel the world to source the very best single origin coffee for you</h2>
+      <plan-picker-item></plan-picker-item>
+  </div>
+
+  <script type="text/x-template" id="plan-picker-item-template">
+      <div class="plans">
+          <plan-item v-for="plan in plans" @select="selectPlan" :selected="plan === selectedPlan" :name="plan"></plan-item>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="plan-template">
+        <div class="plan" @click="select" :class="{'active-plan': selected}">
+            <div class="description">
+                <span class="title">
+                    {{name}}
+                </span>
+            </div>
+        </div>
+    </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+  </body>
+</html>
